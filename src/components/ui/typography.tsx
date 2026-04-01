@@ -6,15 +6,12 @@ import { cn } from "@/utils/helpers";
 const typographyVariants = cva([], {
   variants: {
     variant: {
-      h1: "text-5xl font-extrabold leading-none",
       h2: "text-4xl font-semibold leading-none",
       h3: "text-5xl font-extrabold leading-none",
       h4: "text-base font-semibold leading-normal lg:text-xl",
       h5: "text-3xl font-semibold leading-none",
-      body: "text-xl font-normal leading-6 text-pretty",
       small: "text-base font-normal leading-6 text-pretty",
-      overline: "font-mono text-sm font-normal leading-6 lg:text-base",
-      caption: "text-xs font-normal leading-6",
+      overline: "text-sm font-normal leading-5 text-pretty",
     },
     fontWeight: {
       default: [],
@@ -35,7 +32,7 @@ const typographyVariants = cva([], {
     },
   },
   defaultVariants: {
-    variant: "body",
+    variant: "small",
     fontWeight: "default",
     color: "default",
     leading: "default",
@@ -43,39 +40,33 @@ const typographyVariants = cva([], {
 });
 
 type VariantElementMap = {
-  h1: "h1";
   h2: "h2";
   h3: "h3";
   h4: "h4";
   h5: "h5";
-  body: "p";
   small: "p";
   overline: "span";
-  caption: "span";
 };
 
 type Variant = keyof VariantElementMap;
 
-type TypographyProps<V extends Variant = "body"> = React.ComponentProps<VariantElementMap[V]> &
+type TypographyProps<V extends Variant = "small"> = React.ComponentProps<VariantElementMap[V]> &
   VariantProps<typeof typographyVariants> & {
     variant?: V;
     as?: React.ElementType;
   };
 
 const defaultElements: VariantElementMap = {
-  h1: "h1",
   h2: "h2",
   h3: "h3",
   h4: "h4",
   h5: "h5",
-  body: "p",
   small: "p",
   overline: "span",
-  caption: "span",
 };
 
-const Typography = <V extends Variant = "body">({
-  variant = "body" as V,
+const Typography = <V extends Variant = "small">({
+  variant = "small" as V,
   fontWeight = "default",
   color = "default",
   leading = "default",

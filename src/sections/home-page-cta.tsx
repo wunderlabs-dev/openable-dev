@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
+
+import { gradientRenderer } from "@/utils/renderers";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -8,13 +9,7 @@ import { Typography } from "@/components/ui/typography";
 import { SvgIconDownload } from "@/components/icon/svg-icon-download";
 import { SvgIconEye } from "@/components/icon/svg-icon-eye";
 
-const renderers = {
-  gradient: (chunks: ReactNode) => (
-    <span className="bg-linear-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">
-      {chunks}
-    </span>
-  ),
-} as const;
+const renderers = { gradient: gradientRenderer } as const;
 
 const HomePageCta = async () => {
   const t = await getTranslations();

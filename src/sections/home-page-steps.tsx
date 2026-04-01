@@ -1,19 +1,18 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useRef, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
+import { useEventListener } from "usehooks-ts";
 
+import { cn } from "@/utils/helpers";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { SvgIconSteps } from "@/components/icon/svg-icon-steps";
+import { gradientRenderer } from "@/utils/renderers";
 
-const renderers = {
-  gradient: (chunks: ReactNode) => (
-    <span className="bg-linear-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">
-      {chunks}
-    </span>
-  ),
-} as const;
+const renderers = { gradient: gradientRenderer } as const;
+
+const STEP_ACTIVATION_OFFSET = 0.5;
 
 const stepKeys = [
   { key: "steps.items.import", step: "01" },
@@ -24,6 +23,25 @@ const stepKeys = [
 
 const HomePageSteps = () => {
   const t = useTranslations();
+  const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeStep, setActiveStep] = useState(-1);
+
+  const handleScroll = useCallback(() => {
+    const viewportMiddle = window.innerHeight * STEP_ACTIVATION_OFFSET;
+    let latest = -1;
+
+    stepsRef.current.forEach((el, index) => {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= viewportMiddle) {
+        latest = index;
+      }
+    });
+
+    setActiveStep(latest);
+  }, []);
+
+  useEventListener("scroll", handleScroll);
 
   return (
     <Container size="lg">
@@ -41,12 +59,21 @@ const HomePageSteps = () => {
 
         <div className="grid grid-cols-2 gap-24">
           <div className="col-span-1 relative">
-            <SvgIconSteps active={0} className="absolute right-0 h-full w-auto" />
+            <SvgIconSteps active={activeStep} className="absolute right-0 h-full w-auto" />
           </div>
 
           <div className="col-span-1 flex flex-col gap-16">
-            {stepKeys.map(({ key, step }) => (
-              <div key={key} className="flex flex-col gap-6 opacity-25">
+            {stepKeys.map(({ key, step }, index) => (
+              <div
+                key={key}
+                ref={(el) => {
+                  stepsRef.current[index] = el;
+                }}
+                className={cn(
+                  "flex flex-col gap-6 transition-opacity duration-300",
+                  index <= activeStep ? "opacity-100" : "opacity-25",
+                )}
+              >
                 <div className="flex flex-col">
                   <Typography variant="small" fontWeight="semibold">
                     {step}

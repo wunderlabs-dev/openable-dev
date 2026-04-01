@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
+
+import { gradientRenderer, mutedRenderer } from "@/utils/renderers";
 
 import { SvgIconDownload } from "@/components/icon/svg-icon-download";
 import { SvgIconCursor } from "@/components/icon/svg-icon-cursor";
@@ -13,12 +14,8 @@ import { LavaBlob } from "@/components/ui/lava-blob";
 import { Typography } from "@/components/ui/typography";
 
 const renderers = {
-  muted: (chunks: ReactNode) => <span className="text-grey-100">{chunks}</span>,
-  gradient: (chunks: ReactNode) => (
-    <span className="bg-linear-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">
-      {chunks}
-    </span>
-  ),
+  gradient: gradientRenderer,
+  muted: mutedRenderer,
 } as const;
 
 const features = [
@@ -78,8 +75,12 @@ const HomePageHero = async () => {
             <div key={feature.titleKey} className="flex flex-1 flex-col gap-4">
               <feature.icon className="size-8 text-white" />
               <div className="flex flex-col gap-1">
-                <p className="text-base font-semibold leading-6">{t(feature.titleKey)}</p>
-                <p className="text-sm leading-5 text-grey-100">{t(feature.descKey)}</p>
+                <Typography variant="small" fontWeight="semibold">
+                  {t(feature.titleKey)}
+                </Typography>
+                <Typography variant="overline" color="muted">
+                  {t(feature.descKey)}
+                </Typography>
               </div>
             </div>
           ))}
