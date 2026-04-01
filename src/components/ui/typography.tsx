@@ -6,10 +6,10 @@ import { cn } from "@/utils/helpers";
 const typographyVariants = cva([], {
   variants: {
     variant: {
+      h1: "text-5xl font-extrabold leading-none",
       h2: "text-4xl font-semibold leading-none",
-      h3: "text-5xl font-extrabold leading-none",
+      h3: "text-3xl font-semibold leading-none",
       h4: "text-base font-semibold leading-normal lg:text-xl",
-      h5: "text-3xl font-semibold leading-none",
       small: "text-base font-normal leading-6 text-pretty",
       overline: "text-sm font-normal leading-5 text-pretty",
     },
@@ -40,10 +40,10 @@ const typographyVariants = cva([], {
 });
 
 type VariantElementMap = {
+  h1: "h1";
   h2: "h2";
   h3: "h3";
   h4: "h4";
-  h5: "h5";
   small: "p";
   overline: "span";
 };
@@ -57,10 +57,10 @@ type TypographyProps<V extends Variant = "small"> = React.ComponentProps<Variant
   };
 
 const defaultElements: VariantElementMap = {
+  h1: "h1",
   h2: "h2",
   h3: "h3",
   h4: "h4",
-  h5: "h5",
   small: "p",
   overline: "span",
 };

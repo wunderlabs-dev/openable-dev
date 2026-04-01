@@ -51,9 +51,7 @@ const HomePageHero = async () => {
 
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <Typography variant="h3" as="h1">
-                {t.rich("hero.title", renderers)}
-              </Typography>
+              <Typography variant="h1">{t.rich("hero.title", renderers)}</Typography>
               <Typography variant="small">{t("hero.description")}</Typography>
             </div>
 

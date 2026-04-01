@@ -78,7 +78,9 @@ const HomePageSteps = () => {
                   <Typography variant="small" fontWeight="semibold">
                     {step}
                   </Typography>
-                  <Typography variant="h3">{t(`${key}.title`)}</Typography>
+                  <Typography variant="h1" as="h3">
+                    {t(`${key}.title`)}
+                  </Typography>
                 </div>
                 <Typography variant="small" color="muted">
                   {t(`${key}.description`)}
