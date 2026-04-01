@@ -4,7 +4,12 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 
+import { AppBar } from "@/components/ui/app-bar";
 import { Footer } from "@/components/ui/footer";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations();
@@ -24,10 +29,11 @@ const RootLayout = async ({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="bg-grey-900 text-white">
-      <body className="bg-linear-to-r from-grey-800 to-grey-900">
+    <html lang={locale} className={cn("bg-grey-900 text-white", "font-sans", geist.variable)}>
+      <body className="bg-linear-to-r from-grey-800 to-grey-900 antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <main>{children}</main>
+          <AppBar />
+          <main className="flex flex-col gap-48">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

@@ -51,7 +51,7 @@ const Footer = ({ className, ...props }: FooterProps) => {
 
   return (
     <footer data-slot="footer" className={className} {...props}>
-      <Container size="lg" spacing="lg">
+      <Container size="xl" spacing="lg">
         <Divider />
 
         <div className="flex flex-col items-stretch justify-between gap-12 pt-3 pb-12 lg:flex-row">

@@ -3,12 +3,13 @@ import type * as React from "react";
 import { cn } from "@/utils/helpers";
 import { spacingClassNames, type Spacing } from "@/utils/spacing";
 
-type ContainerSize = "sm" | "md" | "lg";
+type ContainerSize = "sm" | "md" | "lg" | "xl";
 
 const containerSizeClassNames: Record<ContainerSize, string> = {
-  sm: "max-w-xl",
-  md: "max-w-7xl",
-  lg: "max-w-container",
+  sm: "max-w-md",
+  md: "max-w-xl",
+  lg: "max-w-section",
+  xl: "max-w-container",
 };
 
 type ContainerProps<T extends React.ElementType = "div"> = {

@@ -3,6 +3,19 @@
     "title": "Openable.dev",
     "description": "Run AI-generated apps without hassle"
   },
+  "appBar": {
+    "overview": "Overview",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "docs": "Docs",
+    "download": "Download"
+  },
+  "cta": {
+    "title": "<gradient>Turn AI-generated code</gradient> into a real app",
+    "description": "Stop fighting with development setup.\nRun and edit AI-generated applications locally in seconds.",
+    "download": "Download v1.0.2",
+    "docs": "View documentation"
+  },
   "footer": {
     "copyright": "© {year} Openable.dev created by <link>Wunderlabs</link>. All rights reserved.",
     "product": "Product",
