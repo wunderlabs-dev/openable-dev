@@ -9,6 +9,7 @@ import { SvgIconGlitters } from "@/components/icon/svg-icon-glitters";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
+import { LavaBlob } from "@/components/ui/lava-blob";
 import { Typography } from "@/components/ui/typography";
 
 const renderers = {
@@ -42,7 +43,8 @@ const HomePageHero = async () => {
   const t = await getTranslations();
 
   return (
-    <div className="flex flex-col items-center gap-16">
+    <div className="relative flex flex-col items-center gap-16">
+      <LavaBlob />
       <Container size="sm">
         <div className="flex flex-col gap-2">
           <Typography variant="small" fontWeight="semibold">
