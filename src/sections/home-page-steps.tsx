@@ -1,5 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
@@ -13,14 +15,14 @@ const renderers = {
 } as const;
 
 const stepKeys = [
-  "steps.items.import",
-  "steps.items.setup",
-  "steps.items.run",
-  "steps.items.edit",
+  { key: "steps.items.import", step: "01" },
+  { key: "steps.items.setup", step: "02" },
+  { key: "steps.items.run", step: "03" },
+  { key: "steps.items.edit", step: "04" },
 ] as const;
 
-const HomePageSteps = async () => {
-  const t = await getTranslations();
+const HomePageSteps = () => {
+  const t = useTranslations();
 
   return (
     <Container size="lg">
@@ -39,11 +41,11 @@ const HomePageSteps = async () => {
         <div className="grid grid-cols-2">
           <div />
           <div className="flex flex-col gap-16">
-            {stepKeys.map((key, index) => (
-              <div key={key} className={`flex flex-col gap-6 ${index > 0 ? "opacity-25" : ""}`}>
+            {stepKeys.map(({ key, step }) => (
+              <div key={key} className="flex flex-col gap-6 opacity-25">
                 <div className="flex flex-col">
                   <Typography variant="small" fontWeight="semibold">
-                    {String(index + 1).padStart(2, "0")}
+                    {step}
                   </Typography>
                   <Typography variant="h3">{t(`${key}.title`)}</Typography>
                 </div>

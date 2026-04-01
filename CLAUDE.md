@@ -45,6 +45,7 @@ pnpm fmt:check        # oxfmt check
 - Color tokens are grouped by color name (grey, orange, amber, etc.)
 - Shadow, spacing, and other tokens follow the pattern `--{utility}-{name}` (e.g. `--shadow-glass-inset`)
 - Use Tailwind opacity modifiers (`bg-grey-50/20`) instead of rgba values
+- Never use template literal interpolation for className. Always use `cn()` from `@/utils/helpers` for conditional classes
 
 ## Stack
 
