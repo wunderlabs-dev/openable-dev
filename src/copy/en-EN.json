@@ -16,6 +16,33 @@
     "download": "Download v1.0.2",
     "docs": "View documentation"
   },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Every question has an answer.",
+    "docs": "View documentation",
+    "items": {
+      "code": {
+        "question": "Do I need to know how to code ?",
+        "answer": "Not at all! Openable.dev is designed for non-technical users. You can import, run, and preview your projects without writing a single line of code."
+      },
+      "import": {
+        "question": "How can I import my projects ?",
+        "answer": "It is super simple ! You just need to connect your GitHub account and select all the projects you want to import."
+      },
+      "platforms": {
+        "question": "What platforms does Openable.dev support ?",
+        "answer": "Openable.dev is available on macOS, with Linux and Windows support coming soon."
+      },
+      "builtForMe": {
+        "question": "Is it built for me ?",
+        "answer": "If you use AI tools like Lovable, Bolt, or v0 to generate code and want to run it locally without dealing with terminal commands, then yes, it is built for you."
+      },
+      "free": {
+        "question": "Is it free ?",
+        "answer": "Openable.dev is free to download and use during the beta period. We will announce pricing plans before the beta ends."
+      }
+    }
+  },
   "footer": {
     "copyright": "© {year} Openable.dev created by <link>Wunderlabs</link>. All rights reserved.",
     "product": "Product",
