@@ -28,7 +28,7 @@ const HomePageSignupForm = ({ variant = "primary" }: SignupFormProps) => {
       onSubmit={handleSubmit}
       className={cn(
         "flex w-full max-w-md flex-col gap-3 self-start sm:flex-row sm:items-center",
-        variant === "primary" && "mx-auto",
+        variant === "primary" ? "mx-auto" : undefined,
       )}
     >
       <Input type="email" name="email" required placeholder={t("signup.emailPlaceholder")} />

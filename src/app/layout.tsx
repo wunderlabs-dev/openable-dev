@@ -7,12 +7,39 @@ import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { HomePageAppBar } from "@/components/home-page-app-bar";
 import { HomePageFooter } from "@/components/home-page-footer";
 
+const SITE_URL = "https://openable.dev";
+
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations();
 
   return {
     title: t("metadata.title"),
     description: t("metadata.description"),
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+      canonical: "/",
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: SITE_URL,
+      siteName: t("metadata.title"),
+      title: t("metadata.ogTitle"),
+      description: t("metadata.ogDescription"),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("metadata.twitterTitle"),
+      description: t("metadata.twitterDescription"),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
   };
 };
 

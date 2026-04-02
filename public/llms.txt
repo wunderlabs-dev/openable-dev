@@ -1,0 +1,34 @@
+# Openable.dev
+
+> Run AI-generated apps without hassle
+
+Openable.dev is the missing link between AI code generation and local development. Import, run, and edit your projects in Cursor. No Node.js, no terminal commands, no configuration.
+
+## What is Openable?
+
+Openable.dev is a desktop application that lets non-technical users run AI-generated code locally. It works with projects created by tools like Lovable, Bolt, v0, or any other AI code generation platform. Projects are imported via GitHub.
+
+## Key Features
+
+- Zero configuration: no need to install Node.js, npm, or any development tools
+- Cursor friendly: built with simplicity in mind, open and edit projects directly in Cursor
+- Works with any AI platform: use Lovable, Bolt, v0, or any other AI code generation platform
+- GitHub integration: connect your GitHub account and clone, sync, update repositories
+- One-click project setup: import a repository and run it instantly
+
+## How It Works
+
+1. Import your project: connect your GitHub account and select a repository
+2. Openable sets everything up: dependencies are installed automatically
+3. Run the app locally: start the application and open it in your browser
+4. Edit code in Cursor: open the project in Cursor and start editing
+
+## Status
+
+The project is currently in beta. Sign up at https://openable.dev to get early access.
+
+## Links
+
+- Website: https://openable.dev
+- Platform: macOS (Linux and Windows coming soon)
+- Created by: Wunderlabs
