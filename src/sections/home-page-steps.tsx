@@ -5,15 +5,16 @@ import { useTranslations } from "next-intl";
 import { useEventListener } from "usehooks-ts";
 
 import { cn } from "@/utils/helpers";
+import { gradientRenderer } from "@/utils/renderers";
+
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { SvgIconSteps } from "@/components/icon/svg-icon-steps";
-import { gradientRenderer } from "@/utils/renderers";
 
 const renderers = { gradient: gradientRenderer } as const;
 
-const STEP_ACTIVATION_OFFSET = 0.5;
 const STEP_INDEX_INITIAL = -1;
+const STEP_ACTIVATION_OFFSET = 0.5;
 
 const stepKeys = [
   { key: "steps.items.import", step: "01" },
@@ -41,6 +42,13 @@ const HomePageSteps = () => {
     setActiveStep(latest);
   }, []);
 
+  const setStepRef = useCallback(
+    (index: number) => (element: HTMLDivElement | null) => {
+      stepsRef.current[index] = element;
+    },
+    [],
+  );
+
   useEventListener("scroll", handleScroll);
 
   return (
@@ -66,9 +74,7 @@ const HomePageSteps = () => {
             {stepKeys.map(({ key, step }, index) => (
               <div
                 key={key}
-                ref={(el) => {
-                  stepsRef.current[index] = el;
-                }}
+                ref={setStepRef(index)}
                 className={cn(
                   "flex flex-col gap-6 transition-opacity duration-300",
                   index <= activeStep ? "opacity-100" : "opacity-25",

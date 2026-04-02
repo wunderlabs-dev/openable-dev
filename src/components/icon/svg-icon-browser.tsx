@@ -165,7 +165,13 @@ const SvgIconBrowser = ({ className, ...props }: SvgIconBrowserProps) => {
           initial={browserPanelInitial}
           whileHover={browserPanelWhileHover}
           transition={browserPanelTransition}
-          className="cursor-pointer [&>ellipse]:fill-grey-50/30 [&>ellipse]:transition-[fill] [&>ellipse]:duration-300 [&>path:last-of-type]:stroke-grey-50/30 [&>path:last-of-type]:transition-[stroke] [&>path:last-of-type]:duration-300 hover:[&>ellipse]:fill-white hover:[&>path:last-of-type]:stroke-white"
+          className={cn(
+            "cursor-pointer",
+            "[&>ellipse]:fill-grey-50/30 [&>ellipse]:transition-[fill] [&>ellipse]:duration-300",
+            "[&>path:last-of-type]:stroke-grey-50/30 [&>path:last-of-type]:transition-[stroke] [&>path:last-of-type]:duration-300",
+            "hover:[&>ellipse]:fill-white",
+            "hover:[&>path:last-of-type]:stroke-white",
+          )}
         >
           <path className="fill-grey-900" d={path.fill} />
           <path fill="none" d={path.stroke} />

@@ -20,10 +20,10 @@ const SvgIconSteps = ({ active, className }: SvgIconStepsProps) => {
       fill="none"
       className={cn("-scale-y-100", className)}
     >
-      {rings.map((d, index) => (
+      {rings.map((ring, index) => (
         <path
           key={index}
-          d={d}
+          d={ring}
           className={cn(
             "transition-all duration-300",
             index <= active ? "fill-amber-500 opacity-100" : "fill-grey-50 opacity-30",
