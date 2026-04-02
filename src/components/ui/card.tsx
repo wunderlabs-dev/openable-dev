@@ -35,7 +35,7 @@ const cardContentVariants = cva("flex flex-col gap-2", {
       none: "p-0",
       sm: "p-3",
       md: "p-8",
-      lg: "p-12",
+      lg: "p-8 sm:p-12",
     },
   },
   defaultVariants: {

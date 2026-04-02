@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 
-import { AppBar } from "@/components/ui/app-bar";
-import { Footer } from "@/components/ui/footer";
+import { HomePageAppBar } from "@/components/home-page-app-bar";
+import { HomePageFooter } from "@/components/home-page-footer";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations();
@@ -31,11 +31,11 @@ const RootLayout = async ({
     >
       <body className="bg-linear-to-b from-grey-800 to-grey-900 antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <AppBar />
+          <HomePageAppBar />
           <main className="flex flex-col gap-24 overflow-hidden pt-32 lg:gap-48 lg:pt-48">
             {children}
           </main>
-          <Footer />
+          <HomePageFooter />
         </NextIntlClientProvider>
       </body>
     </html>

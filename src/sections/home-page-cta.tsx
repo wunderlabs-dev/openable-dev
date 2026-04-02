@@ -2,11 +2,9 @@ import { getTranslations } from "next-intl/server";
 
 import { gradientRenderer } from "@/utils/renderers";
 
-import { SvgIconDownload } from "@/components/icon/svg-icon-download";
 import { SvgIconBrowser } from "@/components/icon/svg-icon-browser";
-import { SvgIconEye } from "@/components/icon/svg-icon-eye";
 
-import { Button } from "@/components/ui/button";
+import { HomePageSignupForm } from "@/components/home-page-signup-form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
@@ -31,17 +29,7 @@ const HomePageCta = async () => {
               <Typography variant="small">{t("cta.description")}</Typography>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button variant="primary">
-                <SvgIconDownload size="md" />
-                {t("cta.download")}
-              </Button>
-
-              <Button variant="secondary">
-                <SvgIconEye size="md" />
-                {t("cta.docs")}
-              </Button>
-            </div>
+            <HomePageSignupForm />
           </CardContent>
         </Card>
       </Container>

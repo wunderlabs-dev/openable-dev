@@ -4,12 +4,11 @@ import productPosterSrc from "@/static/images/product-poster@2x.png";
 
 import { gradientRenderer, mutedRenderer } from "@/utils/renderers";
 
-import { SvgIconDownload } from "@/components/icon/svg-icon-download";
 import { SvgIconCursor } from "@/components/icon/svg-icon-cursor";
 import { SvgIconGear } from "@/components/icon/svg-icon-gear";
 import { SvgIconGlitters } from "@/components/icon/svg-icon-glitters";
 
-import { Button } from "@/components/ui/button";
+import { HomePageSignupForm } from "@/components/home-page-signup-form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { LavaBlob } from "@/components/ui/lava-blob";
@@ -57,10 +56,7 @@ const HomePageHero = async () => {
               <Typography variant="small">{t("hero.description")}</Typography>
             </div>
 
-            <Button variant="primary" className="self-start">
-              <SvgIconDownload size="md" />
-              {t("hero.download")}
-            </Button>
+            <HomePageSignupForm variant="secondary" />
           </div>
         </div>
       </Container>

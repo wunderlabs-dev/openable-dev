@@ -11,7 +11,7 @@ import { Typography } from "@/components/ui/typography";
 
 import { SvgIconOpenable } from "@/components/icon/svg-icon-openable";
 
-type FooterProps = ComponentProps<"footer">;
+type HomePageFooterProps = ComponentProps<"footer">;
 
 const renderers = {
   year: getYear(new Date()),
@@ -51,7 +51,7 @@ const sections = [
   },
 ] as const;
 
-const Footer = ({ className, ...props }: FooterProps) => {
+const HomePageFooter = ({ className, ...props }: HomePageFooterProps) => {
   const t = useTranslations();
 
   return (
@@ -96,4 +96,4 @@ const Footer = ({ className, ...props }: FooterProps) => {
   );
 };
 
-export { Footer };
+export { HomePageFooter };

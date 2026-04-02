@@ -6,14 +6,14 @@ import { useTranslations } from "next-intl";
 
 import { cn } from "@/utils/helpers";
 
-import { SvgIconDownload } from "@/components/icon/svg-icon-download";
+import { SvgIconArrowRight } from "@/components/icon/svg-icon-arrow-right";
 import { SvgIconOpenableSymbol } from "@/components/icon/svg-icon-openable-symbol";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Nav, NavLink } from "@/components/ui/nav";
 
-type AppBarProps = ComponentProps<"header">;
+type HomePageAppBarProps = ComponentProps<"header">;
 
 const links = [
   { href: "/#overview", labelKey: "appBar.overview" },
@@ -21,7 +21,7 @@ const links = [
   { href: "/#how-it-works", labelKey: "appBar.howItWorks" },
 ] as const;
 
-const AppBar = ({ className, ...props }: AppBarProps) => {
+const HomePageAppBar = ({ className, ...props }: HomePageAppBarProps) => {
   const t = useTranslations();
 
   return (
@@ -43,14 +43,14 @@ const AppBar = ({ className, ...props }: AppBarProps) => {
             ))}
           </Nav>
 
-          <Button variant="primary">
-            <SvgIconDownload size="md" />
+          <Link href="/#overview" className={buttonVariants({ variant: "primary" })}>
+            <SvgIconArrowRight size="md" />
             {t("appBar.download")}
-          </Button>
+          </Link>
         </div>
       </Container>
     </header>
   );
 };
 
-export { AppBar };
+export { HomePageAppBar };

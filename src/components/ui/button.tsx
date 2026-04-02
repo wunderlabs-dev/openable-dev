@@ -5,7 +5,7 @@ import { cn } from "@/utils/helpers";
 
 const buttonVariants = cva(
   cn(
-    "flex h-12 items-center gap-3 rounded-full px-5 py-3",
+    "flex shrink-0 h-12 items-center gap-3 rounded-full px-5 py-3",
     "text-base font-semibold leading-6 text-white whitespace-nowrap",
     "cursor-pointer select-none transition-all duration-200 ease-out",
     "relative isolate overflow-hidden",
@@ -34,6 +34,7 @@ const buttonVariants = cva(
   },
 );
 
+type ButtonVariant = NonNullable<VariantProps<typeof buttonVariants>["variant"]>;
 type ButtonProps = React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>;
 
 const Button = ({ variant, className, children, ...props }: ButtonProps) => {
@@ -45,3 +46,4 @@ const Button = ({ variant, className, children, ...props }: ButtonProps) => {
 };
 
 export { Button, buttonVariants };
+export type { ButtonProps, ButtonVariant };

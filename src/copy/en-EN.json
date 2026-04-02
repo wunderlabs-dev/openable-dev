@@ -7,7 +7,6 @@
     "brand": "Openable.dev <muted>by Wunderlabs</muted>",
     "title": "<gradient>Run AI-generated apps</gradient> without hassle",
     "description": "Openable.dev is the missing link between AI code generation and local development. Import, run, and edit your projects in Cursor. No Node.js, no terminal commands, no configuration.",
-    "download": "Download v1.0.2",
     "features": {
       "zero": {
         "title": "Zero configuration",
@@ -70,13 +69,16 @@
     "features": "Features",
     "howItWorks": "How it works",
     "docs": "Docs",
-    "download": "Download"
+    "download": "Join waiting list"
   },
   "cta": {
     "title": "<gradient>Turn AI-generated code</gradient>\ninto a real app",
-    "description": "Stop fighting with development setup.\nRun and edit AI-generated applications locally in seconds.",
-    "download": "Download v1.0.2",
-    "docs": "View documentation"
+    "description": "Stop fighting with development setup.\nRun and edit AI-generated applications locally in seconds."
+  },
+  "signup": {
+    "emailPlaceholder": "Enter your email",
+    "submit": "Submit",
+    "success": "You're on the list! We'll notify you when Openable is ready."
   },
   "faq": {
     "title": "FAQ",
