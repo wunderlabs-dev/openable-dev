@@ -41,9 +41,16 @@
 }
 
 @keyframes entrance {
-  from {
+  0% {
     opacity: 0;
     filter: blur(2px);
     transform: translateY(16px);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
