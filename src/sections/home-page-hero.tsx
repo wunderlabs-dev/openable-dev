@@ -54,6 +54,9 @@ const HomePageHero = async () => {
             <div className="flex flex-col gap-4">
               <Typography variant="h1">{t.rich("hero.title", renderers)}</Typography>
               <Typography variant="small">{t("hero.description")}</Typography>
+              <Typography variant="small" color="muted">
+                {t("hero.beta")}
+              </Typography>
             </div>
 
             <HomePageSignupForm variant="secondary" />
