@@ -1,14 +1,31 @@
-import type * as React from "react";
+"use client";
+
+import { createContext, use, type ComponentProps } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/utils/helpers";
 
-const cardVariants = cva("relative overflow-hidden rounded-3xl shadow-card-inset", {
-  variants: {
-    variant: {
-      solid: "bg-grey-900/20",
-      glass: "backdrop-blur-2xl bg-grey-50/10",
+type CardVariant = "solid" | "glass";
+
+const CardContext = createContext<CardVariant>("solid");
+
+const cardVariants = cva(
+  "relative overflow-hidden rounded-3xl after:pointer-events-none after:absolute after:inset-0 after:rounded-3xl after:shadow-card-inset",
+  {
+    variants: {
+      variant: {
+        solid: "bg-grey-900/20",
+        glass: "backdrop-blur-2xl bg-grey-50/10",
+      },
     },
+    defaultVariants: {
+      variant: "solid",
+    },
+  },
+);
+
+const cardContentVariants = cva("flex flex-col gap-2", {
+  variants: {
     spacing: {
       none: "p-0",
       md: "p-8",
@@ -16,19 +33,35 @@ const cardVariants = cva("relative overflow-hidden rounded-3xl shadow-card-inset
     },
   },
   defaultVariants: {
-    variant: "solid",
     spacing: "md",
   },
 });
 
-type CardProps = React.ComponentProps<"div"> & VariantProps<typeof cardVariants>;
+type CardProps = ComponentProps<"div"> & VariantProps<typeof cardVariants>;
+type CardContentProps = ComponentProps<"div"> & VariantProps<typeof cardContentVariants>;
 
-const Card = ({ variant, spacing, className, children, ...props }: CardProps) => {
+const Card = ({ variant = "solid", className, children, ...props }: CardProps) => {
   return (
-    <div data-slot="card" className={cn(cardVariants({ variant, spacing, className }))} {...props}>
+    <CardContext value={variant}>
+      <div data-slot="card" className={cn(cardVariants({ variant, className }))} {...props}>
+        {children}
+      </div>
+    </CardContext>
+  );
+};
+
+const CardContent = ({ spacing, className, children, ...props }: CardContentProps) => {
+  use(CardContext);
+
+  return (
+    <div
+      data-slot="card-content"
+      className={cn(cardContentVariants({ spacing, className }))}
+      {...props}
+    >
       {children}
     </div>
   );
 };
 
-export { Card, cardVariants };
+export { Card, CardContent, cardVariants, cardContentVariants };

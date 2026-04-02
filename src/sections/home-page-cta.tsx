@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { gradientRenderer } from "@/utils/renderers";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { SvgIconDownload } from "@/components/icon/svg-icon-download";
@@ -16,8 +16,8 @@ const HomePageCta = async () => {
 
   return (
     <Container size="md">
-      <Card variant="solid" spacing="lg">
-        <div className="flex flex-col items-center gap-8">
+      <Card variant="solid">
+        <CardContent spacing="lg" className="items-center gap-8">
           <div className="flex w-full flex-col gap-4 whitespace-pre-line">
             <Typography variant="h1" as="h2">
               {t.rich("cta.title", renderers)}
@@ -37,7 +37,7 @@ const HomePageCta = async () => {
               {t("cta.docs")}
             </Button>
           </div>
-        </div>
+        </CardContent>
       </Card>
     </Container>
   );

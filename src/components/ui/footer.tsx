@@ -29,19 +29,24 @@ const renderers = {
 
 const sections = [
   {
+    id: "community",
     title: "footer.community",
     links: [
-      { href: "https://github.com/wunderlabs-dev/openable", labelKey: "footer.github" },
-      { href: "https://x.com/vtemian", labelKey: "footer.vtemian" },
-      { href: "https://x.com/balajmarius", labelKey: "footer.balajmarius" },
-      { href: "mailto:office@wunderlabs.dev", labelKey: "footer.contact" },
+      {
+        id: "github",
+        href: "https://github.com/wunderlabs-dev/openable",
+        labelKey: "footer.github",
+      },
+      { id: "vtemian", href: "https://x.com/vtemian", labelKey: "footer.vtemian" },
+      { id: "balajmarius", href: "https://x.com/balajmarius", labelKey: "footer.balajmarius" },
     ],
   },
   {
+    id: "product",
     title: "footer.product",
     links: [
-      { href: "/", labelKey: "footer.overview" },
-      { href: "/docs", labelKey: "footer.docs" },
+      { id: "overview", href: "/", labelKey: "footer.overview" },
+      { id: "contact", href: "mailto:office@wunderlabs.dev", labelKey: "footer.contact" },
     ],
   },
 ] as const;
@@ -69,12 +74,12 @@ const Footer = ({ className, ...props }: FooterProps) => {
 
           <div className="flex flex-col gap-6 sm:flex-row sm:gap-12">
             {sections.map((section) => (
-              <nav key={section.title} className="flex flex-col gap-3">
+              <nav key={section.id} className="flex flex-col gap-3">
                 <Typography variant="h4">{t(section.title)}</Typography>
 
                 {section.links.map((item) => (
                   <Link
-                    key={item.href}
+                    key={item.id}
                     href={item.href}
                     target="_blank"
                     className="text-base hover:text-amber-500"

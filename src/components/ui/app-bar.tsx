@@ -18,7 +18,6 @@ const links = [
   { href: "/#overview", labelKey: "appBar.overview" },
   { href: "/#features", labelKey: "appBar.features" },
   { href: "/#how-it-works", labelKey: "appBar.howItWorks" },
-  { href: "/docs", labelKey: "appBar.docs" },
 ] as const;
 
 const AppBar = ({ className, ...props }: AppBarProps) => {
@@ -26,7 +25,7 @@ const AppBar = ({ className, ...props }: AppBarProps) => {
 
   return (
     <header data-slot="app-bar" className={cn("fixed inset-x-0 top-4 z-50", className)} {...props}>
-      <Container className="flex items-center gap-3 whitespace-nowrap">
+      <Container className="flex items-center justify-center gap-3 whitespace-nowrap">
         <Link
           href="/"
           className="flex h-14 items-center justify-center px-6 rounded-full bg-grey-50/10 shadow-card-inset backdrop-blur-2xl"

@@ -44,7 +44,7 @@ const HomePageSteps = () => {
   useEventListener("scroll", handleScroll);
 
   return (
-    <Container size="lg">
+    <Container id="how-it-works" size="lg">
       <div className="flex flex-col gap-16">
         <div className="grid grid-cols-2">
           <div className="flex flex-col gap-4">

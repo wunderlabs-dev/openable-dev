@@ -40,7 +40,7 @@ const HomePageHero = async () => {
   const t = await getTranslations();
 
   return (
-    <div className="relative flex flex-col items-center gap-16">
+    <div id="overview" className="relative flex flex-col items-center gap-16">
       <LavaBlob />
 
       <Container size="sm">
