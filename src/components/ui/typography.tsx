@@ -6,9 +6,9 @@ import { cn } from "@/utils/helpers";
 const typographyVariants = cva([], {
   variants: {
     variant: {
-      h1: "text-5xl font-extrabold leading-none",
-      h2: "text-4xl font-semibold leading-none",
-      h3: "text-3xl font-semibold leading-none",
+      h1: "text-5xl font-extrabold leading-none text-balance",
+      h2: "text-4xl font-semibold leading-none text-balance",
+      h3: "text-3xl font-semibold leading-none text-balance",
       h4: "text-base font-semibold leading-normal lg:text-xl",
       small: "text-base font-normal leading-6 text-pretty",
       overline: "text-sm font-normal leading-5 text-pretty",

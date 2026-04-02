@@ -74,7 +74,7 @@ const HomePageHero = async () => {
               muted
               playsInline
               poster={productPosterSrc.src}
-              className="h-full w-full rounded-2xl object-cover"
+              className="h-full w-full rounded-xl object-cover"
             >
               <source src="/videos/product.mp4" type="video/mp4" />
             </video>

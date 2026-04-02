@@ -55,11 +55,20 @@ const AccordionTrigger = ({ className, children, isOpen, onToggle }: AccordionTr
       <Typography variant="h4" as="span" className="flex-1">
         {children}
       </Typography>
-      {isOpen ? (
-        <MinusIcon className="shrink-0 size-4 text-white" />
-      ) : (
-        <PlusIcon className="shrink-0 size-4 text-white" />
-      )}
+      <span className="relative shrink-0 size-4">
+        <PlusIcon
+          className={cn(
+            "absolute inset-0 size-4 text-white transition-all duration-300",
+            isOpen ? "scale-25 opacity-0 blur-xs" : "scale-100 opacity-100 blur-none",
+          )}
+        />
+        <MinusIcon
+          className={cn(
+            "absolute inset-0 size-4 text-white transition-all duration-300",
+            isOpen ? "scale-100 opacity-100 blur-none" : "scale-25 opacity-0 blur-xs",
+          )}
+        />
+      </span>
     </button>
   );
 };
