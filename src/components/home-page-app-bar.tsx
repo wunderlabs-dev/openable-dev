@@ -43,10 +43,10 @@ const HomePageAppBar = ({ className, ...props }: HomePageAppBarProps) => {
             ))}
           </Nav>
 
-          <Link href="/#overview" className={buttonVariants({ variant: "primary" })}>
+          <a href="#overview" className={buttonVariants({ variant: "primary" })}>
             <SvgIconArrowRight size="md" />
             {t("appBar.download")}
-          </Link>
+          </a>
         </div>
       </Container>
     </header>

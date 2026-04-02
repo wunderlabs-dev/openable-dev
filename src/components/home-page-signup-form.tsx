@@ -3,6 +3,8 @@
 import { useForm } from "@formspree/react";
 import { useTranslations } from "next-intl";
 
+import { cn } from "@/utils/helpers";
+
 import { Button, type ButtonVariant } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Typography } from "@/components/ui/typography";
@@ -18,17 +20,16 @@ const HomePageSignupForm = ({ variant = "primary" }: SignupFormProps) => {
   const [state, handleSubmit] = useForm(FORMSPREE_ID);
 
   if (state.succeeded) {
-    return (
-      <Typography variant="small" color="muted">
-        {t("signup.success")}
-      </Typography>
-    );
+    return <Typography variant="small">{t("signup.success")}</Typography>;
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full flex-col gap-3 self-start sm:flex-row sm:items-center"
+      className={cn(
+        "flex w-full max-w-md flex-col gap-3 self-start sm:flex-row sm:items-center",
+        variant === "primary" && "mx-auto",
+      )}
     >
       <Input type="email" name="email" required placeholder={t("signup.emailPlaceholder")} />
 
