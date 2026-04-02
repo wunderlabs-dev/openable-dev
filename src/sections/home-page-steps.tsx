@@ -13,6 +13,7 @@ import { gradientRenderer } from "@/utils/renderers";
 const renderers = { gradient: gradientRenderer } as const;
 
 const STEP_ACTIVATION_OFFSET = 0.5;
+const STEP_INDEX_INITIAL = -1;
 
 const stepKeys = [
   { key: "steps.items.import", step: "01" },
@@ -24,19 +25,18 @@ const stepKeys = [
 const HomePageSteps = () => {
   const t = useTranslations();
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeStep, setActiveStep] = useState(-1);
+
+  const [activeStep, setActiveStep] = useState(STEP_INDEX_INITIAL);
 
   const handleScroll = useCallback(() => {
-    const viewportMiddle = window.innerHeight * STEP_ACTIVATION_OFFSET;
-    let latest = -1;
+    const viewportHalf = window.innerHeight * STEP_ACTIVATION_OFFSET;
 
-    stepsRef.current.forEach((el, index) => {
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      if (rect.top <= viewportMiddle) {
-        latest = index;
+    const latest = stepsRef.current.reduce((accumulator, element, index) => {
+      if (element && element.getBoundingClientRect().top <= viewportHalf) {
+        return index;
       }
-    });
+      return accumulator;
+    }, STEP_INDEX_INITIAL);
 
     setActiveStep(latest);
   }, []);
