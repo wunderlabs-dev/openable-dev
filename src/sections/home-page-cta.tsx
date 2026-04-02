@@ -18,7 +18,7 @@ const HomePageCta = async () => {
 
   return (
     <div className="flex flex-col items-center">
-      <SvgIconBrowser className="-mt-12 -mb-72 h-200" />
+      <SvgIconBrowser className="hidden -mt-12 -mb-72 h-200 lg:block" />
 
       <Container size="md">
         <Card variant="solid" spacing="lg">

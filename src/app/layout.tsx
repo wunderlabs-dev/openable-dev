@@ -32,7 +32,7 @@ const RootLayout = async ({
       <body className="bg-linear-to-b from-grey-800 to-grey-900 antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AppBar />
-          <main className="flex flex-col gap-48 pt-48">{children}</main>
+          <main className="flex flex-col gap-24 pt-32 lg:gap-48 lg:pt-48">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

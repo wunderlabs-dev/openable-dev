@@ -34,7 +34,7 @@ const AppBar = ({ className, ...props }: AppBarProps) => {
         </Link>
 
         <div className="flex items-center gap-12 p-1 rounded-full bg-grey-50/10 shadow-card-inset backdrop-blur-2xl">
-          <Nav>
+          <Nav className="hidden lg:flex">
             {links.map((link) => (
               <NavLink key={link.href} href={link.href}>
                 {t(link.labelKey)}

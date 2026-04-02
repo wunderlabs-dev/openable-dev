@@ -19,7 +19,7 @@ const HomePageFeatures = async () => {
 
   return (
     <Container id="features" size="lg">
-      <div className="grid grid-cols-2 gap-16">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-4">
           <Typography variant="h2" className="whitespace-pre-line">
             {t.rich("features.title", renderers)}
@@ -29,9 +29,9 @@ const HomePageFeatures = async () => {
           </Typography>
         </div>
 
-        <div className="col-span-2 flex flex-col gap-8">
+        <div className="col-span-1 flex flex-col gap-8 lg:col-span-2">
           <Card variant="solid" className="flex flex-col gap-8 bg-app-4 bg-cover bg-center">
-            <CardContent className="w-1/2">
+            <CardContent className="lg:w-1/2">
               <Typography variant="h3">{t("features.creators.title")}</Typography>
               <Typography variant="small" color="muted">
                 {t("features.creators.description")}
@@ -45,7 +45,7 @@ const HomePageFeatures = async () => {
             />
           </Card>
 
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             <Card variant="solid" className="flex flex-col gap-8 bg-app-2 bg-cover bg-center">
               <CardContent>
                 <Typography variant="h3">{t("features.github.title")}</Typography>
@@ -78,7 +78,7 @@ const HomePageFeatures = async () => {
           </div>
 
           <Card variant="solid" className="flex flex-col gap-8 bg-app-1 bg-cover bg-center">
-            <CardContent className="w-1/2">
+            <CardContent className="lg:w-1/2">
               <Typography variant="h3">{t("features.setup.title")}</Typography>
               <Typography variant="small" color="muted">
                 {t("features.setup.description")}
