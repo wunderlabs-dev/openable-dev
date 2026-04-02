@@ -8,10 +8,8 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
-import { SvgIconEye } from "@/components/icon/svg-icon-eye";
 
 const faqKeys = [
   "faq.items.code",
@@ -53,11 +51,6 @@ const HomePageFaq = () => {
             </AccordionItem>
           ))}
         </Accordion>
-
-        <Button variant="secondary">
-          <SvgIconEye size="md" />
-          {t("faq.docs")}
-        </Button>
       </div>
     </Container>
   );
