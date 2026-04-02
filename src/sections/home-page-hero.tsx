@@ -64,7 +64,7 @@ const HomePageHero = async () => {
       </Container>
 
       <Container size="lg">
-        <Card variant="glass" spacing="none" className="h-136 w-full" />
+        <Card variant="glass" className="h-136 w-full" />
       </Container>
 
       <Container size="md">
