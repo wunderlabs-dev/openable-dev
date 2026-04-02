@@ -54,7 +54,7 @@ const HomePageSteps = () => {
   return (
     <Container id="how-it-works" size="lg">
       <div className="flex flex-col gap-16">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="flex flex-col gap-4">
             <Typography variant="h2" className="whitespace-pre-line">
               {t.rich("steps.title", renderers)}
@@ -65,12 +65,12 @@ const HomePageSteps = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-24">
-          <div className="col-span-1 relative">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+          <div className="relative hidden lg:block">
             <SvgIconSteps active={activeStep} className="absolute right-0 h-full w-auto" />
           </div>
 
-          <div className="col-span-1 flex flex-col gap-16">
+          <div className="flex flex-col gap-16">
             {stepKeys.map(({ key, step }, index) => (
               <div
                 key={key}

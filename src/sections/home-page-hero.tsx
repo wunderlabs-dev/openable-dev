@@ -45,7 +45,7 @@ const HomePageHero = async () => {
     <div id="overview" className="relative flex flex-col items-center gap-16">
       <LavaBlob />
 
-      <Container size="sm">
+      <Container size="sm" className="px-12 lg:px-4">
         <div className="flex flex-col gap-2">
           <Typography variant="small" fontWeight="semibold">
             {t.rich("hero.brand", renderers)}
@@ -83,7 +83,7 @@ const HomePageHero = async () => {
       </Container>
 
       <Container size="md">
-        <div className="flex gap-6">
+        <div className="flex flex-col gap-6 sm:flex-row">
           {features.map((feature) => (
             <div key={feature.titleKey} className="flex flex-1 flex-col gap-4">
               <feature.icon className="size-8 text-white" />
