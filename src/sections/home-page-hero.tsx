@@ -45,7 +45,7 @@ const HomePageHero = async () => {
     <div id="overview" className="relative flex flex-col items-center gap-16">
       <LavaBlob />
 
-      <Container size="sm" className="px-12 lg:px-4">
+      <Container size="sm" className="animate-entrance-2 px-12 lg:px-4">
         <div className="flex flex-col gap-2">
           <Typography variant="small" fontWeight="semibold">
             {t.rich("hero.brand", renderers)}
@@ -65,7 +65,7 @@ const HomePageHero = async () => {
         </div>
       </Container>
 
-      <Container size="lg">
+      <Container size="lg" className="animate-entrance-3">
         <Card variant="glass" spacing="sm" className="w-full overflow-hidden">
           <CardContent>
             <video
@@ -82,7 +82,7 @@ const HomePageHero = async () => {
         </Card>
       </Container>
 
-      <Container size="md">
+      <Container size="md" className="animate-entrance-4">
         <div className="flex flex-col gap-6 sm:flex-row">
           {features.map((feature) => (
             <div key={feature.titleKey} className="flex flex-1 flex-col gap-4">

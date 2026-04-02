@@ -24,7 +24,11 @@ const AppBar = ({ className, ...props }: AppBarProps) => {
   const t = useTranslations();
 
   return (
-    <header data-slot="app-bar" className={cn("fixed inset-x-0 top-4 z-50", className)} {...props}>
+    <header
+      data-slot="app-bar"
+      className={cn("animate-entrance-1 fixed inset-x-0 top-4 z-50", className)}
+      {...props}
+    >
       <Container className="flex items-center justify-center gap-3 whitespace-nowrap">
         <Link
           href="/"
