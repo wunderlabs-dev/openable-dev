@@ -21,8 +21,8 @@ const HomePageCta = async () => {
       <SvgIconBrowser className="-mt-12 -mb-72 h-200" />
 
       <Container size="md">
-        <Card variant="solid">
-          <CardContent spacing="lg" className="items-center gap-8">
+        <Card variant="solid" spacing="lg">
+          <CardContent className="items-center gap-8">
             <div className="flex w-full flex-col gap-4 whitespace-pre-line">
               <Typography variant="h1" as="h2">
                 {t.rich("cta.title", renderers)}

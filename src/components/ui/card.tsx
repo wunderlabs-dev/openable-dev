@@ -5,9 +5,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/utils/helpers";
 
-type CardVariant = "solid" | "glass" | null;
+type CardSpacing = "none" | "sm" | "md" | "lg";
 
-const CardContext = createContext<CardVariant>("solid");
+type CardContextValue = {
+  variant: "solid" | "glass" | null;
+  spacing: CardSpacing;
+};
+
+const CardContext = createContext<CardContextValue>({ variant: "solid", spacing: "md" });
 
 const cardVariants = cva(
   "relative overflow-hidden rounded-3xl after:pointer-events-none after:absolute after:inset-0 after:rounded-3xl after:shadow-card-inset",
@@ -28,6 +33,7 @@ const cardContentVariants = cva("flex flex-col gap-2", {
   variants: {
     spacing: {
       none: "p-0",
+      sm: "p-3",
       md: "p-8",
       lg: "p-12",
     },
@@ -37,12 +43,16 @@ const cardContentVariants = cva("flex flex-col gap-2", {
   },
 });
 
-type CardProps = ComponentProps<"div"> & VariantProps<typeof cardVariants>;
+type CardProps = ComponentProps<"div"> &
+  VariantProps<typeof cardVariants> & {
+    spacing?: CardSpacing;
+  };
+
 type CardContentProps = ComponentProps<"div"> & VariantProps<typeof cardContentVariants>;
 
-const Card = ({ variant = "solid", className, children, ...props }: CardProps) => {
+const Card = ({ variant = "solid", spacing = "md", className, children, ...props }: CardProps) => {
   return (
-    <CardContext value={variant}>
+    <CardContext value={{ variant, spacing }}>
       <div data-slot="card" className={cn(cardVariants({ variant, className }))} {...props}>
         {children}
       </div>
@@ -51,12 +61,13 @@ const Card = ({ variant = "solid", className, children, ...props }: CardProps) =
 };
 
 const CardContent = ({ spacing, className, children, ...props }: CardContentProps) => {
-  use(CardContext);
+  const context = use(CardContext);
+  const resolvedSpacing = spacing ?? context.spacing;
 
   return (
     <div
       data-slot="card-content"
-      className={cn(cardContentVariants({ spacing, className }))}
+      className={cn(cardContentVariants({ spacing: resolvedSpacing, className }))}
       {...props}
     >
       {children}

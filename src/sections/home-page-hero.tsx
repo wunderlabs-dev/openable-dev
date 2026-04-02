@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import productPosterSrc from "@/static/images/product-poster@2x.png";
+
 import { gradientRenderer, mutedRenderer } from "@/utils/renderers";
 
 import { SvgIconDownload } from "@/components/icon/svg-icon-download";
@@ -8,7 +10,7 @@ import { SvgIconGear } from "@/components/icon/svg-icon-gear";
 import { SvgIconGlitters } from "@/components/icon/svg-icon-glitters";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { LavaBlob } from "@/components/ui/lava-blob";
 import { Typography } from "@/components/ui/typography";
@@ -64,7 +66,20 @@ const HomePageHero = async () => {
       </Container>
 
       <Container size="lg">
-        <Card variant="glass" className="h-136 w-full" />
+        <Card variant="glass" spacing="sm" className="w-full overflow-hidden">
+          <CardContent>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster={productPosterSrc.src}
+              className="h-full w-full rounded-2xl object-cover"
+            >
+              <source src="/videos/product.mp4" type="video/mp4" />
+            </video>
+          </CardContent>
+        </Card>
       </Container>
 
       <Container size="md">
