@@ -14,7 +14,7 @@ const lavaBlobPrimaryAnimate = {
   y: [0, -100, 60, -40, 0],
   scale: [1, 1.3, 0.8, 1.15, 1],
   rotate: [0, 25, -20, 10, 0],
-} as const;
+};
 
 const lavaBlobPrimaryTransition = {
   duration: 10,
@@ -27,7 +27,7 @@ const lavaBlobSecondaryAnimate = {
   y: [0, 80, -70, 50, 0],
   scale: [1, 0.8, 1.3, 0.9, 1],
   rotate: [0, -20, 15, -25, 0],
-} as const;
+};
 
 const lavaBlobSecondaryTransition = {
   duration: 13,
