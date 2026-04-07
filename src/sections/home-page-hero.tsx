@@ -4,6 +4,8 @@ import productPosterSrc from "@/static/images/product-poster@2x.png";
 
 import { gradientRenderer, mutedRenderer } from "@/utils/renderers";
 
+import { HeroVideo } from "@/components/hero-video";
+
 import { SvgIconCursor } from "@/components/icon/svg-icon-cursor";
 import { SvgIconGear } from "@/components/icon/svg-icon-gear";
 import { SvgIconGlitters } from "@/components/icon/svg-icon-glitters";
@@ -67,16 +69,11 @@ const HomePageHero = async () => {
       <Container size="lg">
         <Card variant="glass" spacing="sm" className="w-full overflow-hidden">
           <CardContent>
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
+            <HeroVideo
+              webmSrc="https://cdn.openable.dev/videos/openable.webm"
+              mp4Src="https://cdn.openable.dev/videos/openable.mp4"
               poster={productPosterSrc.src}
-              className="h-full w-full rounded-xl object-cover"
-            >
-              <source src="/videos/product.mp4" type="video/mp4" />
-            </video>
+            />
           </CardContent>
         </Card>
       </Container>

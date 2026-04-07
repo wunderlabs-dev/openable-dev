@@ -25,6 +25,10 @@
         "title": "Works with any AI platform",
         "description": "Use Lovable, Bolt, v0, or any other AI code generation platform. The projects are imported with GitHub!"
       }
+    },
+    "video": {
+      "unmute": "Unmute video",
+      "mute": "Mute video"
     }
   },
   "features": {
