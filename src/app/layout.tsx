@@ -58,6 +58,10 @@ const data = {
       email: copy.metadata.organizationEmail,
       url: copy.metadata.organizationUrl,
       sameAs: copy.metadata.organizationSameAs,
+      founder: [
+        { "@type": "Person", name: "vtemian", url: "https://blog.vtemian.com/" },
+        { "@type": "Person", name: "balajmarius", url: "https://balajmarius.com/" },
+      ],
       logo: new URL("/images/favicon.svg", SITE_URL).toString(),
     },
     {
